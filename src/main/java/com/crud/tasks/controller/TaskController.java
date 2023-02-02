@@ -17,11 +17,11 @@ public class TaskController {
 
     @GetMapping(value = "taskId")
     public TaskDto getTask(@PathVariable Long taskId) {
-        return new TaskDto(1L, "test title", "test_content");
+        return new TaskDto(taskId, "test title", "test_content");
     }
 
-    @DeleteMapping
-    public void deleteTask(Long taskId) {
+    @DeleteMapping(value = "taskId")
+    public void deleteTask(@PathVariable Long taskId) {
 
     }
 
