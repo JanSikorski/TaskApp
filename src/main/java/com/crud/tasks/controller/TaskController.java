@@ -15,12 +15,12 @@ public class TaskController {
         return new ArrayList<>();
     }
 
-    @GetMapping(value = "taskId")
+    @GetMapping(value = "{taskId}")
     public TaskDto getTask(@PathVariable Long taskId) {
         return new TaskDto(taskId, "test title", "test_content");
     }
 
-    @DeleteMapping(value = "taskId")
+    @DeleteMapping(value = "{taskId}")
     public void deleteTask(@PathVariable Long taskId) {
 
     }
