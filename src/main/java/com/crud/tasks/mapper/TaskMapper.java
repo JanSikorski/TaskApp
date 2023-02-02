@@ -38,10 +38,6 @@ public class TaskMapper {
 
     public List<TaskDto> mapToTaskDtoList(final List<Task> taskList) {
 
-        if (taskList == null || taskList.isEmpty()) {
-            return null;
-        }
-
         return taskList.stream()
                 .map(this::mapToTaskDto)
                 .toList();
