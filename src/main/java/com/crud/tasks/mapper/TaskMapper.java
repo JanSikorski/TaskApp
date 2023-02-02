@@ -38,7 +38,7 @@ public class TaskMapper {
 
     public List<TaskDto> mapToTaskDtoList(final List<Task> taskList) {
 
-        if (taskList == null) {
+        if (taskList == null || taskList.isEmpty()) {
             return null;
         }
 
