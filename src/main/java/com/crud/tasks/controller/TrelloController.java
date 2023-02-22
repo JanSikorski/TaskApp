@@ -27,4 +27,15 @@ public class TrelloController {
             System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName());
         });
     }
+
+    @GetMapping("kodilla_table")
+    public void getTrelloBoardWithKodillaWordNameAndId() {
+        List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
+
+        trelloBoards.stream()
+                .filter(n -> !n.getId().isEmpty() && !n.getName().isEmpty() && n.getName().contains("Kodilla"))
+                .forEach(trelloBoardDto -> {
+                    System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName());
+                });
+    }
 }
