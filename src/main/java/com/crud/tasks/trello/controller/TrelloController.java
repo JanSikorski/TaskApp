@@ -1,5 +1,6 @@
 package com.crud.tasks.trello.controller;
 
+import com.crud.tasks.service.TrelloService;
 import com.crud.tasks.trello.client.TrelloClient;
 import com.crud.tasks.trello.domain.CreatedTrelloCard;
 import com.crud.tasks.trello.domain.TrelloBoardDto;
@@ -17,10 +18,11 @@ import java.util.List;
 public class TrelloController {
 
     private final TrelloClient trelloClient;
+    private final TrelloService trelloService;
 
     @GetMapping("boards")
     public ResponseEntity<List<TrelloBoardDto>> getTrelloBoards() {
-        return ResponseEntity.ok(trelloClient.getTrelloBoards());
+        return ResponseEntity.ok(trelloService.fetchTrelloBoards());
     }
     
     @GetMapping("kodilla_table")
@@ -37,6 +39,6 @@ public class TrelloController {
 
     @PostMapping("cards")
     public ResponseEntity<CreatedTrelloCard> createTrelloCard(@RequestBody TrelloCardDto trelloCardDto) {
-        return ResponseEntity.ok(trelloClient.createNewCard(trelloCardDto));
+        return ResponseEntity.ok(trelloService.createTrelloCard(trelloCardDto));
     }
 }
